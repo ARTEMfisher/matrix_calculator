@@ -140,32 +140,34 @@ def inverseMatrix(matrix):
 
 
 def insertRow(matrix):
+    data.C=matrix
     position = int(input("Введите позицию, на которую хотите вставить строку: "))
-    if position < 1 or position > len(matrix) + 1:
+    if position < 1 or position > len(data.C) + 1:
         print("Неверная позиция для вставки")
         return
 
     vectorC = []
-    for i in range(len(matrix[0])):
+    for i in range(len(data.C[0])):
         a = float(input(f"Введите элемент {i + 1}: "))
         vectorC.append(a)
 
-    matrix.insert(position - 1, vectorC)
-    showMatrix(*matrix)
+    data.C.insert(position - 1, vectorC)
+    showMatrix(*data.C)
 
 def insertCol(matrix):
+    data.C=matrix
     position = int(input("Введите позицию, на которую хотите вставить столбец: "))
-    if position < 1 or position > len(matrix[0]) + 1:
+    if position < 1 or position > len(data.C[0]) + 1:
         print("Неверная позиция для вставки")
         return
     vectorC = []
-    for i in range(len(matrix)):
+    for i in range(len(data.C)):
         a = float(input(f"Введите элемент {i + 1}: "))
         vectorC.append(a)
 
     for j in range(len(vectorC)):
-        matrix[j].insert(position-1, vectorC[j])
-    showMatrix(*matrix)
+        data.C[j].insert(position-1, vectorC[j])
+    showMatrix(*data.C)
 
 def takeTrace(matrix):
     trace = 0
@@ -180,32 +182,34 @@ def diagonalElements(matrix):
     showVector(*data.vectorC)
 
 def changeRow(matrix):
+    data.C=matrix
     position = int(input("Введите позицию, на которую хотите заменить строку: "))
-    if position < 1 or position > len(matrix) + 1:
+    if position < 1 or position > len(data.C) + 1:
         print("Неверная позиция для вставки")
         return
 
     vectorC = []
-    for i in range(len(matrix[0])):
+    for i in range(len(data.C[0])):
         a = float(input(f"Введите элемент {i + 1}: "))
         vectorC.append(a)
 
-    matrix[position-1]=vectorC
-    showMatrix(*matrix)
+    data.C[position-1]=vectorC
+    showMatrix(*data.C)
 
 def changeCol(matrix):
+    data.C=matrix
     position = int(input("Введите позицию, на которую хотите вставить столбец: "))
-    if position < 1 or position > len(matrix[0]) + 1:
+    if position < 1 or position > len(data.C[0]) + 1:
         print("Неверная позиция для вставки")
         return
     vectorC = []
-    for i in range(len(matrix)):
+    for i in range(len(data.C)):
         a = float(input(f"Введите элемент {i + 1}: "))
         vectorC.append(a)
 
     for j in range(len(vectorC)):
-        matrix[j][position-1]=vectorC[j]
-    showMatrix(*matrix)
+        data.C[j][position-1]=vectorC[j]
+    showMatrix(*data.C)
 
 
 def insertMatrix(A, B, row, col):
@@ -221,14 +225,15 @@ def insertMatrix(A, B, row, col):
     showMatrix(*A)
 
 def gluingMatrix(matrix):
+    data.C=matrix
     data.vectorC=[]
-    for i in range(len(matrix)):
+    for i in range(len(data.C)):
         a = float(input(f"Введите {i+1} элемент вектора: "))
         data.vectorC.append(a)
-    for j in range(len(matrix)):
-        matrix[j].append(data.vectorC[j])
+    for j in range(len(data.C)):
+        data.C[j].append(data.vectorC[j])
 
-    showMatrix(*matrix)
+    showMatrix(*data.C)
 
 
 

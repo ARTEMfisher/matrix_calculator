@@ -28,7 +28,7 @@ try:
     2.Ввести матрицу B
     3.Сложение матриц(A+B)
     4.Вычитание матриц(A-B)
-    5.Транспонирование(А)
+    5.Транспонирование
     6.Умножение матриц(A*B)
     7.Вертикальное соединение матриц
     8.Горизонтальное соединение матриц
@@ -40,6 +40,7 @@ try:
     14.Замена строки/столбца матрицы
     15.Вставка матрицы в матрицу
     16.Склеивание матрицы и вектора
+    17.Вывод матриц
     0.Назад
         """)
 
@@ -80,11 +81,11 @@ try:
                                 match option:
                                     case 1:
                                         if data.A != []:
-                                            calculation.showMatrix(calculation.transposition(data.A))
+                                            calculation.showMatrix(*calculation.transposition(data.A))
                                         else: print("Мартица А не введена")
                                     case 2:
                                         if data.B != []:
-                                            calculation.showMatrix(calculation.transposition(data.A))
+                                            calculation.showMatrix(*(calculation.transposition(data.B)))
                                         else:
                                             print("Мартица B не введена")
                                     case 0:
@@ -117,7 +118,7 @@ try:
                                 option = int(input("Действие: "))
                                 match option:
                                     case 1:
-                                        if data.A!=[] and len(data.A[0]) == len(data.A):
+                                        if data.A != [] and len(data.A[0]) == len(data.A):
                                             print(calculation.det(data.A))
                                         else:
                                             print("Введены некорректные данные")
@@ -200,6 +201,8 @@ try:
                                                         print("Не введена матрица B")
                                                 case 0:
                                                     break
+                                    case 0:
+                                        break
 
                         case 12:
                             while True:
@@ -306,7 +309,7 @@ try:
                             while True:
                                 print("""
     1.Вставка матрицы B в матрицу A
-    1.Вставка матрицы A в матрицу B
+    2.Вставка матрицы A в матрицу B
     0.Назад
                                 """)
                                 option = int(input("Действие: "))
@@ -315,7 +318,7 @@ try:
                                         if data.A!=[] and data.B!=[]:
                                             i = int(input("Введите с какого элемента по вертикали начинать вставку: "))
                                             j = int(input("Введите с какого элемента по горизонтали начинать вставку: "))
-                                            calculation.insertMatrix(data.A, data.B,i,j)
+                                            calculation.insertMatrix(data.A, data.B, i ,j)
                                         else:
                                             print("Матрица A не введена")
                                     case 2:
@@ -349,6 +352,30 @@ try:
                                             print("Матрица B не введена")
                                     case 0:
                                         break
+
+                        case 17:
+                            while True:
+                                print("""
+    Какую матрицу Вы хотите вывести?
+    1.Матрица А
+    2.Матрица В
+    0.Назад
+                                """)
+                                option = int(input("Действие: "))
+                                match option:
+                                    case 1:
+                                        if data.A!=[]:
+                                            calculation.showMatrix(*data.A)
+                                        else:
+                                            print("Матрица не была введена")
+                                    case 2:
+                                        if data.B != []:
+                                            calculation.showMatrix(*data.B)
+                                        else:
+                                            print("Матрица не была введена")
+                                    case 0:
+                                        break
+
 
 
             case 2:
@@ -389,7 +416,7 @@ try:
                         case 5:
                             while True:
                                 print("""
-                                Выберите вектор:
+    Выберите вектор:
     1.Вектор a
     2.Вектор b
     0.Назад
